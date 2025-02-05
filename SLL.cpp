@@ -1,7 +1,5 @@
 ﻿#include "SLL.h"
-#include <iostream>
 #include <memory>
-#include <string>
 
 template<typename T>
 SLL<T>::SLL() : head(nullptr) {};
@@ -131,3 +129,7 @@ int SLL<T>::indexOf(T data) {
     
     return -1;
 }
+
+template class SLL<int>;
+template class SLL<std::string>;
+template class SLL<double>;
