@@ -154,13 +154,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CPPLearn.cpp" />
+    <ClCompile Include="A2.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="SLL.cpp" />
+    <ClCompile Include="Token.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="A2.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SLL.h" />
+    <ClInclude Include="Token.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

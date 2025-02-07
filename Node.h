@@ -6,10 +6,6 @@
 
 template <typename T>
 class Node {
-private:
-    T data;
-    std::shared_ptr<Node<T>> next;
-
 public:
     // Constructor
     Node(T d);
@@ -23,4 +19,8 @@ public:
     void setNext(std::shared_ptr<Node<T>> n);
     // toString() method
     std::string toString() const;
+    
+private:
+    T data;
+    std::shared_ptr<Node<T>> next;
 };

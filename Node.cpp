@@ -25,7 +25,11 @@ void Node<T>::setNext(std::shared_ptr<Node<T>> n) {
 
 template <typename T>
 std::string Node<T>::toString() const {
-    return "Node: " + std::to_string(data);
+    if constexpr (std::is_same_v<T, std::string>) {
+        return "Node: "+ data;
+    } else {
+        return "Node: "+ std::to_string(data);
+    }
 }
 
 template class Node<int>;

@@ -1,4 +1,5 @@
 ﻿#include "SLL.h"
+#include "Token.h"
 #include <memory>
 
 template<typename T>
@@ -13,11 +14,19 @@ SLL<T>::SLL() : head(nullptr) {};
 template<typename T>
 void SLL<T>::addInOrder(T data) {
     std::shared_ptr<Node<T>> newNode = std::make_shared<Node<T>>(data);
-
-    if (head == nullptr || data.compareTo(head->getData()) <= 0) {
-        newNode->setNext(head);
-        head = newNode;
-        return;
+    
+    if constexpr (std::is_same_v<T, Token>) {
+        if (head == nullptr || data.compareTo(head->getData()) <= 0) {
+            newNode->setNext(head);
+            head = newNode;
+            return;
+        }
+    } else {
+        if (head == nullptr || data <= head->getData()) {
+            newNode->setNext(head);
+            head = newNode;
+            return;
+        }
     }
 
     std::shared_ptr<Node<T>> current = head;
@@ -120,7 +129,7 @@ int SLL<T>::indexOf(T data) {
 
     while (current != nullptr) {
         // Check after implementation (dot vs arrow operator)
-        if (current->getData().equals(data)) {
+        if (current->getData().Token::equals(data)) {
             return index;
         }
         current = current->getNext();
